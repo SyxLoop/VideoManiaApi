@@ -15,7 +15,7 @@ Esta es una API en la cual se hace el manejo de usuarios, suscripciones, lista d
     - `npm run dev`.
 
 Recuerde verificar el `package.json` (escriba los parametros de no aparecer):
-* Verificar qe esté `"main": "index.js"`.
+* Verificar que esté `"main": "index.js"`.
 * Debe mostrar `"type": "module"`.
 * En "scripts" debe aparecer `"dev": "nodemon src/index.js"`.
 

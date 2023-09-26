@@ -41,6 +41,7 @@ export const createUsuarios = async (req, res) => {
     });
 };
 
+
 /*
  * Obtiene la lista de usuarios usando el metodo GET
  */
@@ -48,6 +49,7 @@ export const getUsuarios = async (req, res) => {
     const [usuarios] = await con.query("SELECT * FROM usuarios;");
     res.json(usuarios);
 };
+
 
 /*
  * Obtiene a un  usuario por medio de la ID
@@ -60,6 +62,7 @@ export const getUsuariosByID = async (req, res) => {
     );
     res.json(usuarios);
 };
+
 
 /*
  * Actualiza un usuario con el metodo PUT
@@ -86,6 +89,7 @@ export const updateUsuarios = async (req, res) => {
 
     res.json(usuario);
 };
+
 
 /*
  * Elimina a un usuario encontrado mediante una ID usando el metodo DELETE

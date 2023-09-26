@@ -23,7 +23,7 @@ Recuerde verificar el `package.json` (escriba los parametros de no aparecer):
 Este proyecto depende de las siguientes bibliotecas o modulos:
 
 * express (Instalación: `npm i express`).
-* Nodemon (Instalación: `npm i nodemon`).
+* Nodemon (Instalación: `npm i -D nodemon`).
 * Mysql2 (Instalación: `npm i mysql2`).
 * Bcrypt (Instalación: `npm i bcrypt`).
 

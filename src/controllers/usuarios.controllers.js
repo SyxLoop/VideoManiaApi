@@ -1,5 +1,5 @@
 import { con } from "../connection/db.js";
-import bcrypt from 'bcrypt';
+import bcrypt from "bcrypt";
 
 function calcularFechaRegistro() {
     /*
@@ -9,10 +9,7 @@ function calcularFechaRegistro() {
     const dia = fecha.getDate();
     const mes = fecha.getMonth() + 1;
     const anio = fecha.getFullYear();
-    const hora = fecha.getHours();
-    const minutos = fecha.getMinutes();
-    const segundos = fecha.getSeconds();
-    const fechaRegistro = `${anio}-${mes}-${dia} ${hora}:${minutos}:${segundos}`;
+    const fechaRegistro = `${anio}-${mes}-${dia}`;
     return fechaRegistro;
 }
 
@@ -41,20 +38,18 @@ export const createUsuarios = async (req, res) => {
     });
 };
 
-
-/*
- * Obtiene la lista de usuarios usando el metodo GET
- */
 export const getUsuarios = async (req, res) => {
+    /*
+     * Obtiene la lista de usuarios usando el metodo GET
+     */
     const [usuarios] = await con.query("SELECT * FROM usuarios;");
     res.json(usuarios);
 };
 
-
-/*
- * Obtiene a un  usuario por medio de la ID
- */
 export const getUsuariosByID = async (req, res) => {
+    /*
+     * Obtiene a un  usuario por medio de la ID
+     */
     const { id } = req.params;
     const [usuarios] = await con.query(
         "SELECT * FROM usuarios WHERE id_usuarios = ?;",
@@ -63,11 +58,10 @@ export const getUsuariosByID = async (req, res) => {
     res.json(usuarios);
 };
 
-
-/*
- * Actualiza un usuario con el metodo PUT
- */
 export const updateUsuarios = async (req, res) => {
+    /*
+     * Actualiza un usuario con el metodo PUT
+     */
     const { id } = req.params;
     const { nombre, apellido, email, password, telefono } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -90,11 +84,10 @@ export const updateUsuarios = async (req, res) => {
     res.json(usuario);
 };
 
-
-/*
- * Elimina a un usuario encontrado mediante una ID usando el metodo DELETE
- */
 export const deleteUsuarios = async (req, res) => {
+    /*
+     * Elimina a un usuario encontrado mediante una ID usando el metodo DELETE
+     */
     const { id } = req.params;
     const [resultado] = await con.query(
         "DELETE FROM usuarios WHERE id_usuarios = ?",

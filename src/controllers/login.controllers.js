@@ -13,7 +13,7 @@ export const Login = async (req, res) => {
         return res.status(401).send("Usuario no encontrado");
     }
 
-    const contrasenaValida = await bcrypt.compare(password, sesion[0].password);
+    const contrasenaValida = password === sesion[0].password;
 
     console.log(contrasenaValida);
 

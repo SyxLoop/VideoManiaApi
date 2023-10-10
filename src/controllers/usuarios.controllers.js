@@ -32,7 +32,7 @@ export const createUsuarios = async (req, res) => {
         nombre,
         apellido,
         email,
-        hashedPassword: hashedPassword,
+        password: hashedPassword,
         telefono,
         fecha_registro: fechaRegistro,
     });

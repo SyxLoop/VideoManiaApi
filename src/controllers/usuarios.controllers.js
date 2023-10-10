@@ -21,18 +21,16 @@ export const createUsuarios = async (req, res) => {
     const { nombre, apellido, email, password, telefono } = req.body;
     const fechaRegistro = calcularFechaRegistro();
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-
     const [rows] = await con.query(
         "INSERT INTO usuarios (nombre, apellido, email, password, telefono, fecha_registro) VALUES (?,?,?,?,?,?);",
-        [nombre, apellido, email, hashedPassword, telefono, fechaRegistro]
+        [nombre, apellido, email, password, telefono, fechaRegistro]
     );
     res.send({
         id: rows.insertId,
         nombre,
         apellido,
         email,
-        hashedPassword: hashedPassword,
+        password: password,
         telefono,
         fecha_registro: fechaRegistro,
     });
@@ -64,11 +62,10 @@ export const updateUsuarios = async (req, res) => {
      */
     const { id } = req.params;
     const { nombre, apellido, email, password, telefono } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
 
     const [resultado] = await con.query(
         "UPDATE usuarios SET nombre = ?, apellido = ?, email = ?, password = ?, telefono = ? WHERE id_usuarios= ?",
-        [nombre, apellido, email, hashedPassword, telefono, id]
+        [nombre, apellido, email, password, telefono, id]
     );
 
     console.log(resultado);

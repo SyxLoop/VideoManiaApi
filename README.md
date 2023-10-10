@@ -29,3 +29,7 @@ Este proyecto depende de las siguientes bibliotecas o modulos:
 * Mysql2 (Instalación: `npm i mysql2`).
 * Bcrypt (Instalación: `npm i bcrypt`).
 
+## Colaboradores:
+**@github.com/Jc2001valencia** Juan Camilo Valencia.  
+**@github.com/KhalDrog0** Sebastian Quilindo.  
+**@github.com/SyxLoop** Diego Quintana.
